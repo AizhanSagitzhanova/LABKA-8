@@ -1,0 +1,14 @@
+public function up()
+{
+Schema:: create ('item_details' , function (Blueprint $table) {
+$table ->increments ('id');
+$table -> integer('item_id') ->unsigned();
+$table -> foreign('item_id') ->references('id') ->('items');
+$table-> string('filename');
+$table->timestamps();
+});
+}
+@return void
+public function down()
+{
+Schema :: dropIfExists ('item_details');
